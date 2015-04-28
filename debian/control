@@ -1,0 +1,17 @@
+Source: owl2scone
+Section: text
+Priority: optional
+Maintainer: José Luis Sanroma Tato <josel.sanromatato@gmail.com>
+Build-Depends: debhelper (>= 9), python
+Standards-Version: 3.9.5
+Homepage: <insert the upstream URL, if relevant>
+Vcs-Git: git@bitbucket.org:JoselSanroma/owl2scone.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/owl2scone.git;a=summary
+
+Package: owl2scone
+Architecture: all
+Depends: ${misc:Depends}
+Description: OWL to scone converter
+ This program converts OWL directly to Scone. The converter is written
+ in Python and it is useful to provide scone with knowledge from other
+ onthologies such as OWL.
