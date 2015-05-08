@@ -5,6 +5,7 @@
 \usepackage[spanish]{babel}
 \usepackage{times}
 
+
 \title{owl2scone Documentation and equivalents}
 \author{José Luis Sanroma Tato}
 
@@ -15,18 +16,54 @@
   \begin{tabular}{| l | l |}
     \hline
     \textbf{Owl function} & \textbf{Scone function} \\ \hline
-    \verb|<owl:Class rdf:ID="Winery"/>| & \verb|new-type {Winery} {Thing}| \\ \hline
+    \verb|<owl:Class rdf:ID="ConsumableThing"/>| & \verb|new-type {Winery} {Thing}| \\ \hline
+    \verb|<rdfs:subClassOf rdf:resource="#ConsumableThing"/>| & \verb|new-type {PotableLiquid} {ConsumableThing}| \\ \hline
 
 
   \end{tabular}
 \end{center}
 
 
+\paragraph{DataTypeProperty}
+\label{sec:datatypeproperty}
+
+Relations between instances of classes and RDF literals and XML Schema
+datatypes
+
+\paragraph{ObjectProperty}
+\label{sec:objectproperty}
+Relations between instances of two classes.
+
+\begin{verbatim}
+<owl:ObjectProperty rdf:ID="madeFromGrape">
+  <rdfs:domain rdf:resource="#Wine"/>
+  <rdfs:range rdf:resource="#WineGrape"/>
+</owl:ObjectProperty>
+\end{verbatim}
+
+\begin{verbatim}
+push-element-property (e property value &optional already-logged)
+push-element-property (Wine madeFromGrape value &optional already-logged)
+\end{verbatim}
+
+
+
+
+\paragraph{rdfs:subPropertyOf}
+\label{sec:rdfs:subpropertyof}
+The property can be defined to be a specialization of an existing
+property.
+
+\paragraph{rdfs:domain}
+\label{sec:rdfs:domain}
+
+\paragraph{rdfs:range}
+\label{sec:rdfs:range}
+
+
+
+
 \end{document}
-
-
-
-
 
 % Local Variables:
 %   coding: utf-8
