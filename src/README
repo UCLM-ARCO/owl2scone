@@ -1,0 +1,43 @@
+-------------------
+ONTOLOGY Namespaces
+-------------------
+
+
+xmlns	   := the default namespace
+xmls:vin   := Identifies the namespace of the current onthology with the prefix vin:
+xml:base   := The base URI for this document
+xmls:food  := The namespace of the supporting food with the prefix food:
+xmls:owl   := Says that in this document elements prefixed with owl: should be understood as refering things drawn from the namespace called htt://www.w3.org/2002/07/owl#
+xmls:rdf   := Refers to things drawn from the namespace called http://www.w3.org/1999/02/22-rdf-syntax-ns#.
+xmls:rdfs  := Smilar to the previous one
+xmls:xsd   := Idem
+
+
+As an aid to writing lengthy URLs it can often be useful to provide a
+set of entity definitions in a document type declaration (DOCTYPE)
+that precedes the ontology definitions. The names defined by the
+namespace declarations only have significance as parts of XML
+tags. Attribute values are not namespace sensitive. But in OWL we
+frequently reference ontology identifiers using attribute values. They
+can be written down in their fully expanded form, for example
+"http://www.w3.org/TR/2004/REC-owl-guide-20040210/wine#merlot". Alternatively,
+abbreviations can be defined using an ENTITY definition, for example:
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY vin  "http://www.w3.org/TR/2004/REC-owl-guide-20040210/wine#" >
+    <!ENTITY food "http://www.w3.org/TR/2004/REC-owl-guide-20040210/food#" > ]>
+
+
+-----------------
+ONTOLOGY Headers
+-----------------
+
+The owl:Ontology element is a place to collect much of the OWL meta-data for the document.
+
+The rdf:about attribute provides a name or reference for the ontology.
+
+rdfs:comment provides the obvious needed capability to annotate an ontology.
+
+owl:priorVersion is a standard tag intended to provide hooks for version control systems working with ontologies. Ontology versioning is discussed further below.
+
+owl:imports provides an include-style mechanism. owl:imports takes a single argument, identified by the rdf:resource attribute.

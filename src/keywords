@@ -1,0 +1,8 @@
+owl:Class
+rdfs:SubClassOf
+owl:Restriction
+owl:onProperty
+owl:cardinality
+owl:hasValue
+owl:intersectionOf
+owl:ObjectProperty
