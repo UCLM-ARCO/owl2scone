@@ -14,9 +14,8 @@ def checkFiles(origin, destiny):
         print "Missing files!"
     else:
         if os.path.exists(origin) and os.path.isfile(origin):
-            if os.path.exists(destiny) and os.path.isfile(destiny):
-                return True
-            else:
-                print "Oops!, this is awkward, one of the files is not actually a file ;)"
+            print "Oops!, this is awkward, one of the files is not actually a file ;)"
 
-checkFiles(origin, destiny)
+# checkFiles(origin, destiny)
+
+file = open(destiny, 'w+')

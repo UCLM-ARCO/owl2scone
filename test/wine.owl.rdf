@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE rdf:RDF [
-     <!ENTITY vin  "http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#" >
-     <!ENTITY food "http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#" >
+     <!ENTITY vin  "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#" >
+     <!ENTITY food "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#" >
      <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
      <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
    ]>
 
 <rdf:RDF
-  xmlns     = "http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#"
-  xmlns:vin = "http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#"
-  xml:base  = "http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#"
-  xmlns:food= "http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#"
+  xmlns     = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+  xmlns:vin = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+  xml:base  = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+  xmlns:food= "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"
   xmlns:owl = "http://www.w3.org/2002/07/owl#"
   xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs= "http://www.w3.org/2000/01/rdf-schema#"
@@ -19,9 +19,9 @@
   <owl:Ontology rdf:about="">
     <rdfs:comment>An example OWL ontology</rdfs:comment>
     <owl:priorVersion>
-      <owl:Ontology rdf:about="http://www.w3.org/TR/2003/WD-owl-guide-20030331/wine"/>
+      <owl:Ontology rdf:about="http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine"/>
     </owl:priorVersion>
-    <owl:imports rdf:resource="http://www.w3.org/TR/2003/CR-owl-guide-20030818/food"/>
+    <owl:imports rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/food"/>
     <rdfs:comment>Derived from the DAML Wine ontology at 
       http://ontolingua.stanford.edu/doc/chimaera/ontologies/wines.daml
       Substantially changed, in particular the Region based relations.
@@ -561,7 +561,7 @@
     </owl:intersectionOf>
   </owl:Class>
   
-  <owl:Class rdf:ID="Sauterne">
+  <owl:Class rdf:ID="Sauternes">
     <rdfs:subClassOf rdf:resource="#LateHarvest" />
     <rdfs:subClassOf rdf:resource="#Bordeaux" />
     <rdfs:subClassOf>
@@ -1807,12 +1807,12 @@
   
   <Winery rdf:ID="ChateauDYchem" />
   
-  <Sauterne rdf:ID="ChateauDYchemSauterne">
+  <Sauternes rdf:ID="ChateauDYchemSauterne">
     <madeFromGrape rdf:resource="#SauvignonBlancGrape" />
     <madeFromGrape rdf:resource="#SemillonGrape" />
     <hasFlavor rdf:resource="#Strong" />
     <hasMaker  rdf:resource="#ChateauDYchem" />
-  </Sauterne> 
+  </Sauternes> 
   
   <Winery rdf:ID="ChateauDeMeursault" />
   
