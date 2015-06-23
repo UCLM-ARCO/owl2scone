@@ -1,48 +1,48 @@
 #!/usr/bin/python
 # -*- coding: utf-8; mode: python -*-
 
+from abc import ABCMeta, abstractmethod
 
-class SimpleCommand():
 
-    def __init__(self):
+class SimpleCommand(object):
+
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def execute(self):
         pass
-
-    def execute(self, commands):
-        print "simple"
 
 
 class ConcreteCommand(SimpleCommand):
-    name = ""
-    argList = []
 
     def __init__(self, theName, theArgList):
         self.name = theName
         self.argList = theArgList
 
     def execute(self):
-        print "concrete"
+        print self.name + " " + ' '.join(self.argList)
 
 
 class CompositeCommand(SimpleCommand):
-    commandList = []
 
-    def __init__(self):
-        pass
+    def __init__(self, theCommandList):
+        self.commandList = theCommandList
 
     def add(self, command):
         self.commandList.append(command)
-        print "add"
 
     def execute(self):
         for i in self.commandList:
             i.execute()
+
 
 listA = ["{father}", "{thing}"]
 listB = ["{son}", "{father}"]
 
 a = ConcreteCommand("new-type", listA)
 b = ConcreteCommand("new-type", listB)
-c = CompositeCommand()
+l=[]
+c = CompositeCommand(l)
 c.add(a)
 c.add(b)
 c.execute()
