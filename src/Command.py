@@ -3,27 +3,46 @@
 
 
 class SimpleCommand():
+
     def __init__(self):
         pass
 
     def execute(self, commands):
-        pass
+        print "simple"
 
 
 class ConcreteCommand(SimpleCommand):
-    def __init__(self):
-        pass
+    name = ""
+    argList = []
 
-    def execute(self, commands):
-        pass
+    def __init__(self, theName, theArgList):
+        self.name = theName
+        self.argList = theArgList
+
+    def execute(self):
+        print "concrete"
 
 
 class CompositeCommand(SimpleCommand):
+    commandList = []
+
     def __init__(self):
         pass
 
     def add(self, command):
-        pass
+        self.commandList.append(command)
+        print "add"
 
-    def execute(self, commands):
-        pass
+    def execute(self):
+        for i in self.commandList:
+            i.execute()
+
+listA = ["{father}", "{thing}"]
+listB = ["{son}", "{father}"]
+
+a = ConcreteCommand("new-type", listA)
+b = ConcreteCommand("new-type", listB)
+c = CompositeCommand()
+c.add(a)
+c.add(b)
+c.execute()
