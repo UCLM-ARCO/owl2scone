@@ -1,16 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8; mode: python -*-
 
-from abc import ABCMeta, abstractmethod
-
 
 class SimpleCommand(object):
 
-    __metaclass__ = ABCMeta
-
-    @abstractmethod
     def execute(self):
-        pass
+        raise NotImplementedError
 
 
 class ConcreteCommand(SimpleCommand):
@@ -20,6 +15,8 @@ class ConcreteCommand(SimpleCommand):
         self.argList = theArgList
 
     def execute(self):
+        # this is just to see the command, you may need aditional
+        # coding to write it into another file
         print self.name + " " + ' '.join(self.argList)
 
 
