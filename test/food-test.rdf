@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+     <!ENTITY vin  "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#" >
+     <!ENTITY food "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#" >
+     <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+   ]>
+
+<rdf:RDF
+  xmlns     = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"
+  xmlns:food= "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"
+  xml:base  = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"
+  xmlns:vin = "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+  xmlns:owl = "http://www.w3.org/2002/07/owl#"
+  xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs= "http://www.w3.org/2000/01/rdf-schema#">
+
+  <owl:Ontology rdf:about="">
+    <rdfs:comment>
+      Derived from the DAML Wine ontology at
+      http://ontolingua.stanford.edu/doc/chimaera/ontologies/wines.daml
+      Substantially modified.
+    </rdfs:comment>
+    <owl:imports rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="ConsumableThing" />
+
+  <owl:Class rdf:ID="NonConsumableThing">
+    <owl:complementOf rdf:resource="#ConsumableThing" />
+  </owl:Class>
+
+  <owl:Class rdf:ID="EdibleThing">
+    <rdfs:subClassOf rdf:resource="#ConsumableThing" />
+  </owl:Class>
+
+  <owl:Class rdf:ID="PotableLiquid">
+    <rdfs:subClassOf rdf:resource="#ConsumableThing" />
+    <owl:disjointWith rdf:resource="#EdibleThing" />
+  </owl:Class>
+
+  <!-- One goal of these example ontologies was that they
+       be in the OWL DL subset.  We made wine and food
+       mutually import one another, because food shares
+       many of the wine properties.
+       Rather than that, we could have used the following
+       assertion for all of the shared concepts:
+
+        <owl:Class rdf:ID="&vin;Wine"/>
+
+       The reason for this is that in DL all referenced
+       elements must have a type.
+  -->
+
+  <owl:Class rdf:ID="Wine">
+    <owl:equivalentClass rdf:resource="&vin;Wine"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="madeFromFruit">
+    <rdfs:domain rdf:resource="#ConsumableThing" />
+    <rdfs:range rdf:resource="#Fruit" />
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:ID="Juice">
+    <rdfs:subClassOf rdf:resource="#PotableLiquid" />
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#madeFromFruit" />
+ 	<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+</rdf:RDF>
